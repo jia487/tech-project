@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的時尚美妝世界</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            box-sizing: border-box;
+        }
+        
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
+        
+        * {
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .link-button {
+            transition: all 0.3s ease;
+            transform: translateY(0);
+        }
+        
+        .link-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+            opacity: 0;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: white;
+            border-radius: 50%;
+            animation: sparkle 2s linear infinite;
+        }
+        
+        @keyframes sparkle {
+            0%, 100% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1); }
+        }
+        
+        .instagram-gradient {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+        }
+        
+        .github-gradient {
+            background: linear-gradient(45deg, #24292e 0%, #586069 100%);
+        }
+        
+        .linkedin-gradient {
+            background: linear-gradient(45deg, #0077b5 0%, #00a0dc 100%);
+        }
+        
+        .email-gradient {
+            background: linear-gradient(45deg, #ea4335 0%, #fbbc05 25%, #34a853 50%, #4285f4 75%, #9c27b0 100%);
+        }
+    </style>
+</head>
+<body class="gradient-bg">
+    <!-- 閃爍星星背景 -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none">
+        <div class="sparkle" style="top: 10%; left: 20%; animation-delay: 0s;"></div>
+        <div class="sparkle" style="top: 20%; left: 80%; animation-delay: 0.5s;"></div>
+        <div class="sparkle" style="top: 60%; left: 10%; animation-delay: 1s;"></div>
+        <div class="sparkle" style="top: 80%; left: 70%; animation-delay: 1.5s;"></div>
+        <div class="sparkle" style="top: 30%; left: 60%; animation-delay: 2s;"></div>
+    </div>
+
+    <div class="min-h-screen flex items-center justify-center p-4">
+        <div class="w-full max-w-md">
+            <!-- 個人資料卡片 -->
+            <div class="glass-card rounded-3xl p-8 mb-8 text-center fade-in floating">
+                <!-- 頭像 -->
+                <div class="w-24 h-24 mx-auto mb-6 rounded-full bg-gradient-to-r from-pink-400 to-purple-500 flex items-center justify-center text-4xl">
+                    💄
+                </div>
+                
+                <!-- 姓名和介紹 -->
+                <h1 class="text-2xl font-bold text-white mb-2">時尚美妝達人</h1>
+                <p class="text-white/80 text-sm mb-4">高三學生 | 美妝愛好者 | 時尚穿搭分享</p>
+                
+                <!-- 裝飾性元素 -->
+                <div class="flex justify-center space-x-2 text-2xl">
+                    <span>✨</span>
+                    <span>💋</span>
+                    <span>👗</span>
+                    <span>💅</span>
+                </div>
+            </div>
+
+            <!-- 社交媒體連結 -->
+            <div class="space-y-4">
+                <!-- Instagram -->
+                <a href="#" class="link-button instagram-gradient rounded-2xl p-4 flex items-center justify-between text-white font-medium fade-in block" style="animation-delay: 0.2s;" onclick="openLink('https://instagram.com')">
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center mr-4 text-xl">
+                            📷
+                        </div>
+                        <div>
+                            <div class="font-semibold">Instagram</div>
+                            <div class="text-sm opacity-80">美妝穿搭日常分享</div>
+                        </div>
+                    </div>
+                    <div class="text-2xl">→</div>
+                </a>
+
+                <!-- GitHub -->
+                <a href="#" class="link-button github-gradient rounded-2xl p-4 flex items-center justify-between text-white font-medium fade-in block" style="animation-delay: 0.4s;" onclick="openLink('https://github.com')">
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center mr-4 text-xl">
+                            💻
+                        </div>
+                        <div>
+                            <div class="font-semibold">GitHub</div>
+                            <div class="text-sm opacity-80">程式作品集</div>
+                        </div>
+                    </div>
+                    <div class="text-2xl">→</div>
+                </a>
+
+                <!-- LinkedIn -->
+                <a href="#" class="link-button linkedin-gradient rounded-2xl p-4 flex items-center justify-between text-white font-medium fade-in block" style="animation-delay: 0.6s;" onclick="openLink('https://linkedin.com')">
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center mr-4 text-xl">
+                            💼
+                        </div>
+                        <div>
+                            <div class="font-semibold">LinkedIn</div>
+                            <div class="text-sm opacity-80">專業履歷檔案</div>
+                        </div>
+                    </div>
+                    <div class="text-2xl">→</div>
+                </a>
+
+                <!-- Email -->
+                <a href="#" class="link-button email-gradient rounded-2xl p-4 flex items-center justify-between text-white font-medium fade-in block" style="animation-delay: 0.8s;" onclick="sendEmail()">
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center mr-4 text-xl">
+                            ✉️
+                        </div>
+                        <div>
+                            <div class="font-semibold">Email</div>
+                            <div class="text-sm opacity-80">聯絡我</div>
+                        </div>
+                    </div>
+                    <div class="text-2xl">→</div>
+                </a>
+            </div>
+
+            <!-- 底部裝飾 -->
+            <div class="text-center mt-8 fade-in" style="animation-delay: 1s;">
+                <p class="text-white/60 text-sm">✨ 追求美麗，分享時尚 ✨</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openLink(url) {
+            window.open(url, '_blank', 'noopener,noreferrer');
+        }
+
+        function sendEmail() {
+            window.open('mailto:your-email@example.com?subject=來自個人頁面的訊息', '_blank');
+        }
+
+        // 添加更多動態星星
+        function createSparkle() {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+            sparkle.style.top = Math.random() * 100 + '%';
+            sparkle.style.left = Math.random() * 100 + '%';
+            sparkle.style.animationDelay = Math.random() * 2 + 's';
+            
+            document.querySelector('.fixed.inset-0').appendChild(sparkle);
+            
+            setTimeout(() => {
+                sparkle.remove();
+            }, 2000);
+        }
+
+        // 每3秒創建新的星星
+        setInterval(createSparkle, 3000);
+
+        // 頁面載入動畫
+        window.addEventListener('load', () => {
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach((el, index) => {
+                setTimeout(() => {
+                    el.style.animationDelay = (index * 0.2) + 's';
+                }, 100);
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9888ab5b326d8098',t:'MTc1OTQ1NDk3NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
